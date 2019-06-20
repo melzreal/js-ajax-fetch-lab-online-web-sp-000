@@ -9,8 +9,8 @@ function getToken() {
 function forkRepo() {
   const repo = 'https://api.github.com/learn-co-curriculum/js-ajax-fetch-lab/forks';
   //use fetch to fork it!
-  fetch('https://api.github.com/learn-co-curriculum/js-ajax-fetch-lab/forks', {
-    method: 'POST',
+  fetch('https://api.github.com/repos/learn-co-curriculum/js-ajax-fetch-lab/forks', {
+    method: 'GET',
     headers: {
       Authorization: `token ${getToken()}`
     }

@@ -16,7 +16,7 @@ function forkRepo() {
     }
   })
   .then(response => response.json())
-  .then(reply =>  showResults(reply));
+  .then(json =>  showResults(json));
 
 }
 

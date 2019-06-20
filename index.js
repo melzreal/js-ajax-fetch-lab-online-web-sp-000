@@ -25,6 +25,7 @@ function showResults(json) {
      json.html_url
    }</a>`;
 }
+
 function createIssue() {
   const repo = `melzreal/js-ajax-fetch-lab`;
   const postData = {
@@ -52,3 +53,5 @@ function getIssues() {
   })
     .then(res => res.json())
     .then(json => console.log(json));
+}
+

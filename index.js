@@ -25,11 +25,30 @@ function showResults(json) {
      json.html_url
    }</a>`;
 }
-
 function createIssue() {
-  //use this function to create an issue based on the values input in index.html
+  const repo = `melzreal/js-ajax-fetch-lab`;
+  const postData = {
+    title: document.getElementById('title').value,
+    body: document.getElementById('body').value
+  };
+
+  fetch(`https://api.github.com/repos/${repo}/issues`, {
+    method: 'POST',
+    body: JSON.stringify(postData),
+    headers: {
+      Authorization: `token ${getToken()}`
+    }
+  })
+    .then(res => res.json())
+    .then(json => getIssues());
 }
 
 function getIssues() {
-  //once an issue is submitted, fetch all open issues to see the issues you are creating
-}
+  const repo = `melzreal/js-ajax-fetch-lab`;
+  fetch(`https://api.github.com/repos/${repo}/issues`, {
+    headers: {
+      Authorization: `token ${getToken()}`
+    }
+  })
+    .then(res => res.json())
+    .then(json => console.log(json));
